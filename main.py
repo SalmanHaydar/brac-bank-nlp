@@ -26,7 +26,6 @@ abs_path = os.path.dirname(os.path.abspath(__file__))
 tokenizer_path = os.path.join(abs_path,"dataBank/tokenizer_GRU.pickle")
 model_path = os.path.join(abs_path,"dataBank/lang_model_GRU.h5")
 try:
-    
     with open(tokenizer_path,"rb") as file:
         tokenizer = pickle.load(file)
 except:
@@ -89,7 +88,7 @@ def getIntent():
         payloads["intent"] = cl
         rr = {}
         for ind, keys in enumerate(label_dict.keys()):
-            rr[keys] = pred[0][ind]
+            rr[keys] = str(pred[0][ind])
 
         payloads["confidence"] = rr
   
