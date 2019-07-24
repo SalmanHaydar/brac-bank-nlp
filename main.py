@@ -100,3 +100,5 @@ def getIntent():
         return json.dumps(['This method is not allowed'])
         
 
+if __name__=="__main__":
+    app.run(debug=True)
