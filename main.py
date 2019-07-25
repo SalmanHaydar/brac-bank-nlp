@@ -71,7 +71,7 @@ class Preprocessore:
 def getIntent():
     
     label_dict = {'annual-fee':0,'eligibility':1,'facility':2,'interest-rate':3,'mobile-recharge':4,'required-documents':5}
-    idx2cls = {0:'annual-fee',1:'eligibility',2:'facility',3:'interest-rate',4:'mobile-recharge',5:'required-documents'}
+    idx2cls = {0:'annual-fee',1:'eligibility',2:'facility',3:'interest-rate',4:'Unknown',5:'required-documents'}
     
     if request.method == "GET":
         payloads = {"intent":"","confidence":{'annual-fee':0,'eligibility':1,'facility':2,'interest-rate':3,'mobile-recharge':4,'required-documents':5}}
@@ -87,7 +87,7 @@ def getIntent():
         cl = idx2cls[np.argmax(pred[0,:])]
         payloads["intent"] = cl
         rr = {}
-        for ind, keys in enumerate(label_dict.keys()):
+        for ind, keys in enumerate(['annual-fee','eligibility','facility','interest-rate','Unknown','required-documents']):
             rr[keys] = str(pred[0][ind])
 
         payloads["confidence"] = rr
