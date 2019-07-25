@@ -91,6 +91,7 @@ def getIntent():
             rr[keys] = str(pred[0][ind])
 
         payloads["confidence"] = rr
+        payloads["language"] = "en"
   
 
         return json.dumps(payloads)
