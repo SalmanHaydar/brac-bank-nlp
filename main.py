@@ -19,9 +19,11 @@ import json
 import ast
 import re
 import os
+from flask_cors import CORS
 warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/getIntent/*": {"origins": "*"}})
 abs_path = os.path.dirname(os.path.abspath(__file__))
 tokenizer_path = os.path.join(abs_path,"dataBank/tokenizer_GRU.pickle")
 model_path = os.path.join(abs_path,"dataBank/lang_model_GRU.h5")
