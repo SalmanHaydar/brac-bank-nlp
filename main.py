@@ -100,7 +100,15 @@ def getIntent():
 
     else:
         return json.dumps(['This method is not allowed'])
-        
+
+@app.route("/",methods=['GET','POST'])
+def index():
+  if request.method == "GET" or request.method=="POST":
+    return render_template('index.html')
+    # return json.dumps('please see the api documentation.. https://docs.google.com/document/d/1twwLx2g315XpymM60ia7XZMF7ve-lTvm0IrbgfFtErg/edit?usp=sharing')
+
+
+
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=5555)
