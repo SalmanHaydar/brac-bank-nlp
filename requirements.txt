@@ -15,5 +15,5 @@ tensorflow-probability==0.7.0
 tflearn==0.3.2
 HeapDict==1.0.0 
 pickleshare==0.7.5 
-numpy==1.16.4
+numpy==1.22.0
 flask-cors              
